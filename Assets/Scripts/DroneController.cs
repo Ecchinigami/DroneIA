@@ -68,11 +68,11 @@ public class DroneController : MonoBehaviour {
 		//print(acceleration.y);
 		
 		if(Input.GetKey(KeyCode.Space)) {
-			rigidbody.AddForce(0,0,-10);
+			rigidbody.AddForce(0,10,0);
 			//rigidbody.AddRelativeForce(0,0,-10);
 		}
 		if(Input.GetKey(KeyCode.B)) {
-			rigidbody.AddForce(0,0,10);
+			rigidbody.AddForce(0,-10,0);
 			//rigidbody.AddRelativeForce(0,0,10);
 		}
 	}

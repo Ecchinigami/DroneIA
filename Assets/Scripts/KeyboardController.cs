@@ -16,11 +16,11 @@ public class KeyboardController : MonoBehaviour {
 			rigidbody.velocity = speedVector;
 		}		
 		
-		float moveHorizontal = Input.GetAxis("Horizontal");
-		float moveVertical = Input.GetAxis("Vertical");
+		//float moveHorizontal = Input.GetAxis("Horizontal");
+		//float moveVertical = Input.GetAxis("Vertical");
 		
-		Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0.0f);
+		//Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0.0f);
 		
-		rigidbody.AddForce(movement * speed);
+		//rigidbody.AddForce(movement * speed);
 	}
 }
