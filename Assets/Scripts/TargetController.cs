@@ -6,12 +6,14 @@ public class TargetController : MonoBehaviour {
 	public int speed;
 	public int turnSpeed;
 	public GameObject ground;
+	public string comportement;
 
 
 	// Use this for initialization
 	void Start () {
-		//grounds = GameObject.FindGameObjectsWithTag ("Ground");
-		//ground = grounds [0];
+		GameObject[] grounds = GameObject.FindGameObjectsWithTag ("Ground");
+		GameObject ground = grounds [0];
+
 		//Vector3 size = ground.BoxCollider.size;
 		//boxCollider = gameObject.GetComponent ("BoxCollider") as BoxCollider;
 	
@@ -32,13 +34,24 @@ public class TargetController : MonoBehaviour {
 		//transform.rotation = Random.rotation;
 
 		Movement ();
+
+		Vector3 fwd = transform.TransformDirection(Vector3.forward);
+		if (Physics.Raycast(transform.position, fwd, 1))
+			print("There is something in front of the object!");
+
 		if (transform.position.z > 19 || transform.position.z < -19 || transform.position.x > 19 || transform.position.x < -19) 
 		{
 			transform.position = new Vector3(0,1,0);
 		}
-		float translation = Time.deltaTime * 3;
-		transform.Translate(translation, 0, 0);
 
+		if (comportement == "Patrol") {
+			float translation = Time.deltaTime * 3;
+			transform.Translate (translation, 0, 0);
+		}
+
+		if (comportement != "Patrol") {
+			CancelInvoke ();
+		}
 
 		//float translation = Time.deltaTime * 10;
 		//transform.Translate(translation, 0, 0);
@@ -67,10 +80,20 @@ public class TargetController : MonoBehaviour {
 
 	public void RandomMovement () 
 	{
+		Transform from = this.transform;
 		float angle = Random.Range (-90, 90);
 		Debug.Log ("angle : " + angle);
-		transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
-
+		Quaternion to = Quaternion.AngleAxis(angle, Vector3.up);
+		transform.rotation = Quaternion.Slerp(from.rotation, to, 1000F);
 	}
+
+	/*public void RandomMovement()
+	{
+		Vector2 wayPoint = Random.insideUnitCircle * 47;
+		Debug.Log ("angle : " + wayPoint);
+		transform.LookAt(wayPoint);
+	}*/
+
+
 
 }
