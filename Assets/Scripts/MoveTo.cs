@@ -7,14 +7,15 @@ public class MoveTo : MonoBehaviour {
 	
 	void Start () {
 		NavMeshAgent agent = GetComponent<NavMeshAgent>();
-		//agent.destination = goal.position; 
+		agent.destination = goal.position; 
 		//InvokeRepeating ("RandomMovement", 1, 1.0F);
 
 	}
 
 	void Update(){
-		NavMeshAgent agent = GetComponent<NavMeshAgent>();
-		agent.transform.Translate(Vector3.forward * 5 * Time.deltaTime);
+		//NavMeshAgent agent = GetComponent<NavMeshAgent>();
+		//agent.transform.Translate(Vector3.forward * 5 * Time.deltaTime);
+		//agent.Move ((new Vector3(1,0,0)) * 5 * Time.deltaTime);
 	}
 
 	/*public void RandomMovement () 
