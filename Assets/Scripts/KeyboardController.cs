@@ -3,7 +3,7 @@ using System.Collections;
 
 public class KeyboardController : MonoBehaviour {
 
-	public float speed = 3;
+	public float speed = 1;
 	public float maxSpeed = 3;
 	
 	
@@ -19,8 +19,10 @@ public class KeyboardController : MonoBehaviour {
 		float moveHorizontal = Input.GetAxis("Horizontal");
 		float moveVertical = Input.GetAxis("Vertical");
 		
-		Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0.0f);
+		Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 		
-		rigidbody.AddForce(movement * speed);
+		//rigidbody.AddForce(movement * speed);
+		
+		rigidbody.velocity = movement * speed;
 	}
 }
