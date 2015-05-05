@@ -4,8 +4,10 @@ using System.Collections.Generic;
 
 public class CircleFormation : MonoBehaviour {
 	
-	public GameObject droneLeader;
-
+	private GameObject droneLeader;
+	
+	public float droneSpeed = 10;
+	
 	public float radius; // = 10f;
 	
 	private float angleBetweenDrone;
@@ -14,7 +16,9 @@ public class CircleFormation : MonoBehaviour {
 	List<GameObject> drones = new List<GameObject>();
 	
 	// Use this for initialization
-	void Start () {	
+	void Start () {
+		droneLeader = GameObject.FindGameObjectWithTag("Leader");
+	
 		drones.AddRange( GameObject.FindGameObjectsWithTag("Drone") );
 		
 		radius = drones.Count * 1.25f;
@@ -35,15 +39,16 @@ public class CircleFormation : MonoBehaviour {
 		Vector3 direction = goal - rigidbody.position;
 		
 		// Kinematic
-		if(distanceToGoal > radius)
+		/*if(distanceToGoal > radius)
 			rigidbody.velocity = direction;
 		else if (distanceToGoal < radius)
-			rigidbody.velocity = direction * -1;
+			rigidbody.velocity = direction * -1;*/
+			
 		// Steering
-		/*if(distanceToGoal > radius)
-			rigidbody.AddForce(direction.normalized);
+		if(distanceToGoal > radius)
+			rigidbody.AddForce(direction.normalized * droneSpeed);
 		else if (distanceToGoal < radius)
-			rigidbody.AddForce(direction.normalized * -1);*/
+			rigidbody.AddForce(direction.normalized * droneSpeed * -1);
 
 		GameObject nearestDrone = null;
 		float nearestDroneDistance = Mathf.Infinity;
@@ -76,9 +81,15 @@ public class CircleFormation : MonoBehaviour {
 			direction2 = nearestDrone.rigidbody.position - rigidbody.position;
 		
 		// Kinematic
-		if(nearestDroneDistance > distanceBetweenDrone)
+		/*if(nearestDroneDistance > distanceBetweenDrone)
 			rigidbody.velocity += direction2 * 2f;
 		else if (nearestDroneDistance < distanceBetweenDrone)
-			rigidbody.velocity += direction2 * 2f * -1;
+			rigidbody.velocity += direction2 * 2f * -1;*/
+			
+		// Steering
+		if(nearestDroneDistance > distanceBetweenDrone)
+			rigidbody.AddForce(direction2.normalized * droneSpeed * 0.5f);
+		else if (nearestDroneDistance < distanceBetweenDrone)
+			rigidbody.AddForce(direction2.normalized * droneSpeed * 0.5f * -1);
 	}
 }
