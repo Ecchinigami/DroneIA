@@ -6,7 +6,7 @@ public class CircleFormation : MonoBehaviour {
 	
 	public GameObject droneLeader;
 
-	public float radius = 10f;
+	public float radius; // = 10f;
 	
 	private float angleBetweenDrone;
 	private float distanceBetweenDrone;
@@ -16,6 +16,8 @@ public class CircleFormation : MonoBehaviour {
 	// Use this for initialization
 	void Start () {	
 		drones.AddRange( GameObject.FindGameObjectsWithTag("Drone") );
+		
+		radius = drones.Count * 1.25f;
 		
 		float squareRadius = radius * radius;
 		
@@ -68,12 +70,15 @@ public class CircleFormation : MonoBehaviour {
 			rigidbody.velocity += (secondNearestDrone.rigidbody.position - rigidbody.position).normalized;
 		}*/
 		
-		Vector3 direction2 = nearestDrone.rigidbody.position - rigidbody.position;
+		Vector3 direction2 = new Vector3(0f,0f);
+		
+		if(nearestDrone != null)
+			direction2 = nearestDrone.rigidbody.position - rigidbody.position;
 		
 		// Kinematic
 		if(nearestDroneDistance > distanceBetweenDrone)
-			rigidbody.velocity += direction2 * 0.9f;
+			rigidbody.velocity += direction2 * 2f;
 		else if (nearestDroneDistance < distanceBetweenDrone)
-			rigidbody.velocity += direction2 * 0.9f * -1;
+			rigidbody.velocity += direction2 * 2f * -1;
 	}
 }
