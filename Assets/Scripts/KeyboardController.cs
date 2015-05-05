@@ -16,10 +16,18 @@ public class KeyboardController : MonoBehaviour {
 			rigidbody.velocity = speedVector;
 		}		
 		
-		float moveHorizontal = Input.GetAxis("Horizontal");
-		float moveVertical = Input.GetAxis("Vertical");
+		float moveX = Input.GetAxis("Horizontal");
+		float moveZ = Input.GetAxis("Vertical");
 		
-		Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+		float moveY = 0.0f;
+		
+		if (Input.GetKey(KeyCode.Space))
+			moveY = 1f;
+		else if (Input.GetKey(KeyCode.C))
+			moveY = -1f;
+			
+		
+		Vector3 movement = new Vector3(moveX, moveY, moveZ);
 		
 		//rigidbody.AddForce(movement * speed);
 		
