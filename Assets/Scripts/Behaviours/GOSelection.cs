@@ -19,9 +19,9 @@ public class GOSelection : MonoBehaviour {
 			if (hit) 
 			{
 				Debug.Log("Hit " + hitInfo.transform.gameObject.tag);
-				if (hitInfo.transform.gameObject.tag == "Drone")
+				if (hitInfo.transform.gameObject.tag == "Drone" || hitInfo.transform.gameObject.tag == "Center")
 				{
-					Debug.Log ("T'as touché un drone AHAH !");
+					Debug.Log ("T'as touché un drone ou un humain !");
 					GameObject drone = hitInfo.transform.gameObject;
 
 					GameObject simulator = GameObject.FindGameObjectWithTag("Simulator");

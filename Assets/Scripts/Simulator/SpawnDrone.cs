@@ -27,7 +27,7 @@ public class SpawnDrone : MonoBehaviour {
 			}
 		}
 
-		//Instantiate(center, center.transform.position, center.transform.rotation);
+		Instantiate(center, center.transform.position, center.transform.rotation);
 	}
 	
 	// Update is called once per frame

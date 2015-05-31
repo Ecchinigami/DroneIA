@@ -22,7 +22,7 @@ public class ClickMovement : MonoBehaviour {
 	public GameObject objectToMove;
 
 	Vector3 newPosition;
-	float arriveRadius = 1;
+	float arriveRadius = 4;
 
 	void Start () {
 		newPosition = objectToMove.transform.position;
