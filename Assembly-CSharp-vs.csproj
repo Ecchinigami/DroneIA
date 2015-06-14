@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{161E066D-92AE-8B93-2CAF-3E513E68652C}</ProjectGuid>
+	<ProjectGuid>{3EE2573B-8905-FD7E-D57B-1B7CBA717A07}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,20 +46,19 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Behaviours\Boid\Boid3D_2.cs" />
+     <Compile Include="Assets\Scripts\Behaviours\Boid\Boid.cs" />
      <Compile Include="Assets\Scripts\Behaviours\CircleMovement.cs" />
      <Compile Include="Assets\Scripts\Behaviours\ClickMovement.cs" />
      <Compile Include="Assets\Scripts\Behaviours\Formation\CircleFormation.cs" />
      <Compile Include="Assets\Scripts\Behaviours\GOSelection.cs" />
      <Compile Include="Assets\Scripts\Behaviours\Wandering.cs" />
+     <Compile Include="Assets\Scripts\Behaviours\Wandering2.cs" />
      <Compile Include="Assets\Scripts\Camera\FreeCenteredCamera.cs" />
      <Compile Include="Assets\Scripts\Camera\RTSLikeCamera.cs" />
      <Compile Include="Assets\Scripts\DroneController.cs" />
-     <Compile Include="Assets\Scripts\DynGesture.cs" />
-     <Compile Include="Assets\Scripts\GestureListener.cs" />
+     <Compile Include="Assets\Scripts\Simulator\BehaviourManager.cs" />
      <Compile Include="Assets\Scripts\Simulator\KeyboardController.cs" />
      <Compile Include="Assets\Scripts\Simulator\SpawnDrone.cs" />
-     <Compile Include="Assets\Scripts\behaviourManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -24,10 +24,8 @@ public class Wandering : MonoBehaviour {
 	
 	void Update() {
 		
-		transform.Rotate (new Vector3 (0, 0, rotationSpeed * Time.deltaTime));
-		transform.position += transform.up*movementSpeed*Time.deltaTime;
-
-
+		transform.Rotate (new Vector3 (0, rotationSpeed * Time.deltaTime, 0));
+		transform.position += transform.forward*movementSpeed*Time.deltaTime;
 		
 	}
 

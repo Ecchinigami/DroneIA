@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Boid3D_2 : MonoBehaviour{
+public class Boid : MonoBehaviour{
 	
 	private int boidsNumber;
 	public GameObject[] boidsList;
@@ -13,7 +13,7 @@ public class Boid3D_2 : MonoBehaviour{
 	// Use this for initialization
 	void Start () {
 		boidsList = GameObject.FindGameObjectsWithTag ("Drone");
-		goal = GameObject.FindGameObjectWithTag ("Center");
+		goal = GameObject.FindGameObjectWithTag ("Goal");
 		
 	}
 	
