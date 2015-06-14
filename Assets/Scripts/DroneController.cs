@@ -21,7 +21,7 @@ public class DroneController : MonoBehaviour {
 
 	void FixedUpdate () {
 		
-		Vector3 speedVector = new Vector3(rigidbody.velocity.x, rigidbody.velocity.y, rigidbody.velocity.z);
+		//Vector3 speedVector = new Vector3(rigidbody.velocity.x, rigidbody.velocity.y, rigidbody.velocity.z);
 		
 		Vector3 acceleration = rigidbody.velocity - lastVelocity;
 		lastVelocity = rigidbody.velocity;
@@ -58,24 +58,22 @@ public class DroneController : MonoBehaviour {
 			}
 		}
 		
-		if(acceleration.magnitude > 0)
+		/*if(acceleration.magnitude > 0)
 			//transform.rotation = Quaternion.identity * Quaternion.Euler( speedVector );
 			transform.Rotate( acceleration.y * 10, -acceleration.x * 10, 0 );
 		else
 			transform.Rotate( -acceleration.y * 10, acceleration.x * 10, 0);
 			//transform.rotation = Quaternion.identity;
 			
-		//print(acceleration.y);
+		//print(acceleration.y);*/
 		
 		if(Input.GetKey(KeyCode.Space)) {
-			rigidbody.AddForce(0,0,-10);
+			rigidbody.AddForce(0,30,0);
 			//rigidbody.AddRelativeForce(0,0,-10);
 		}
-		if(Input.GetKey(KeyCode.B)) {
-			rigidbody.AddForce(0,0,10);
+		if(Input.GetKey(KeyCode.C)) {
+			rigidbody.AddForce(0,-30, 0);
 			//rigidbody.AddRelativeForce(0,0,10);
 		}
 	}
 }
-
-//specter
