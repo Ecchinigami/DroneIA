@@ -7,7 +7,6 @@ public class Boid : MonoBehaviour{
 	public GameObject[] boidsList;
 	public GameObject goal;
 	public float speed;
-	//public GameObject boid;
 	
 	
 	// Use this for initialization
@@ -32,28 +31,18 @@ public class Boid : MonoBehaviour{
 		Vector3 v3 = new Vector3();
 		Vector3 direction = new Vector3 ();
 		
-		//boidsList = GameObject.FindGameObjectsWithTag ("Boid");
 		v1 = rule1 ();
 		v2 = rule2 ();
 		v3 = rule3 ();
 		Vector3 vectorBoids = v1 + v2 + v3;
-		//vectorBoids.Normalize();
 		direction = goTo();
 
-		//this.rigidbody.velocity = new Vector3((this.rigidbody.velocity.x + vectorBoids.x + direction.x)*Time.deltaTime*speed, (this.rigidbody.velocity.y + vectorBoids.y + direction.y)*Time.deltaTime*speed, (this.rigidbody.velocity.z + vectorBoids.z + direction.z)*Time.deltaTime*speed);
 		this.rigidbody.AddForce ((vectorBoids + direction)*speed);
-
-
-
-		//this.transform.position = this.transform.position + this.rigidbody.velocity;
-
-
 	}
 	
 	
 	private Vector3 rule1(){
 		Vector3 pcj = new Vector3(0,0,0);
-		//boidsList = GameObject.FindGameObjectsWithTag ("Boid");
 		
 		foreach(GameObject b in boidsList)
 		{
@@ -75,7 +64,6 @@ public class Boid : MonoBehaviour{
 	
 	private Vector3 rule2(){
 		Vector3 c = new Vector3 (0, 0, 0);
-		//boidsList = GameObject.FindGameObjectsWithTag ("Boid");
 		
 		foreach (GameObject b in boidsList) {
 			if (b != this) 
@@ -83,7 +71,6 @@ public class Boid : MonoBehaviour{
 				Vector3 differenceVector = new Vector3();
 				differenceVector = b.transform.position - this.transform.position;
 				float distance = differenceVector.magnitude;
-				//if ((b.transform.position.magnitude - bj.transform.position.magnitude) < 1)
 				float randDist = Random.Range(4f, 5f);
 				if(distance < randDist)
 				{
@@ -99,7 +86,6 @@ public class Boid : MonoBehaviour{
 	private Vector3 rule3()
 	{
 		Vector3 pvj = new Vector3 (0, 0, 0);
-		//boidsList = GameObject.FindGameObjectsWithTag ("Boid");
 		
 		foreach (GameObject b in boidsList) {
 			if (b != this) {
