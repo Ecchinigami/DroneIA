@@ -13,10 +13,10 @@ public class BehaviourManager : MonoBehaviour {
 		for(int i=-20; i <= 20; i+=10) {
 			for(int y=-20; y <= 20; y+=10) {
 				Quaternion orientation = Quaternion.AngleAxis(Random.Range(-180f, 180f), Vector3.up);
-				GameObject drone = Instantiate(prefabDrone, prefabDrone.transform.position + new Vector3(i,Random.Range(-1,1),y), orientation) as GameObject;
-				drones.Add(drone);
+				Instantiate(prefabDrone, prefabDrone.transform.position + new Vector3(i,Random.Range(-1,1),y), orientation);
 			}
-		}
+		}		
+		drones.AddRange( GameObject.FindGameObjectsWithTag("Drone") );
 	}
 
 	void Update()
@@ -59,6 +59,14 @@ public class BehaviourManager : MonoBehaviour {
 				boid.enabled =! boid.enabled;
 			}
 		break;
+			
+		case "CircleMovement" :
+			foreach(GameObject drone in drones)
+			{
+				CircleMovement circleMvt = drone.GetComponent<CircleMovement>();
+				circleMvt.enabled =! circleMvt.enabled;
+			}
+			break;
 
 		}
 	}
@@ -93,6 +101,13 @@ public class BehaviourManager : MonoBehaviour {
 			Debug.Log("Boid lancé");
 			switchBehaviour();
 		}
+		else if(Input.GetKeyDown(KeyCode.F5))
+		{
+			disableAllScript();
+			this.behaviour = "CircleMovement"; 
+			Debug.Log("Circle Movement lancé");
+			switchBehaviour();
+		}
 	}
 
 	void disableAllScript()
@@ -104,6 +119,7 @@ public class BehaviourManager : MonoBehaviour {
 			CircleFormation circleFormation = drone.GetComponent<CircleFormation>();
 			SphereFormation sphereFormation = drone.GetComponent<SphereFormation>();
 			Boid boid = drone.GetComponent<Boid>();
+			CircleMovement circle = drone.GetComponent<CircleMovement>();
 			if(wandering.enabled)
 				wandering.enabled = false;
 				wandering2.enabled = false;
@@ -113,6 +129,8 @@ public class BehaviourManager : MonoBehaviour {
 				sphereFormation.enabled = false;
 			if(boid.enabled)
 				boid.enabled = false;
+			if(circle.enabled)
+				circle.enabled = false;
 
 		}
 	}

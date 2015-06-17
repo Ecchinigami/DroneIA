@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{3EE2573B-8905-FD7E-D57B-1B7CBA717A07}</ProjectGuid>
+	<ProjectGuid>{8B527100-FBEA-2D74-ABE5-438C9D93CDC0}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_4_6_1;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_6_3;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_IL2CPP;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;UNITY5_SCRIPTING_IN_UNITY4;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -46,27 +46,26 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\HumanController.cs" />
      <Compile Include="Assets\Scripts\Behaviours\Boid\Boid.cs" />
      <Compile Include="Assets\Scripts\Behaviours\CircleMovement.cs" />
-     <Compile Include="Assets\Scripts\Behaviours\ClickMovement.cs" />
      <Compile Include="Assets\Scripts\Behaviours\Formation\AbstractFormation.cs" />
      <Compile Include="Assets\Scripts\Behaviours\Formation\CircleFormation.cs" />
      <Compile Include="Assets\Scripts\Behaviours\Formation\CircleFormationKinematic.cs" />
      <Compile Include="Assets\Scripts\Behaviours\Formation\CircleFormationSteering.cs" />
      <Compile Include="Assets\Scripts\Behaviours\Formation\SphereFormation.cs" />
-     <Compile Include="Assets\Scripts\Behaviours\GOSelection.cs" />
      <Compile Include="Assets\Scripts\Behaviours\Wandering.cs" />
      <Compile Include="Assets\Scripts\Behaviours\Wandering2.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraManager.cs" />
      <Compile Include="Assets\Scripts\Camera\FreeCenteredCamera.cs" />
      <Compile Include="Assets\Scripts\Camera\RTSLikeCamera.cs" />
-     <Compile Include="Assets\Scripts\DroneController.cs" />
+     <Compile Include="Assets\Scripts\Controller\DroneController.cs" />
+     <Compile Include="Assets\Scripts\Controller\HumanController.cs" />
+     <Compile Include="Assets\Scripts\Selection\ClickMovement.cs" />
+     <Compile Include="Assets\Scripts\Selection\GOSelection.cs" />
      <Compile Include="Assets\Scripts\Simulator\BehaviourManager.cs" />
-     <Compile Include="Assets\Scripts\Simulator\KeyboardController.cs" />
      <Compile Include="Assets\Scripts\Simulator\SpawnDrone.cs" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.3/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

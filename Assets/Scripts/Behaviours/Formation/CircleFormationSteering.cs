@@ -31,14 +31,14 @@ public class CircleFormationSteering : CircleFormation {
 		if(distanceToGoal > radius)
 			direction += (goalPosition - this.transform.position).normalized * 2;		
 		else if (distanceToGoal < radius)
-			direction += (this.transform.position - goalPosition).normalized;
+			direction += (this.transform.position - goalPosition).normalized * 2;
 		
 		
 		/* Respect same height as goal */
 		if(goalPosition.y > this.transform.position.y + 0.5f)
-			direction += Vector3.up * 2;
+			direction += Vector3.up * 3;
 		else if (goalPosition.y < this.transform.position.y - 0.5f)
-			direction += Vector3.down * 2;		
+			direction += Vector3.down * 3;		
 		
 		
 		/* Respect distance to other drones */

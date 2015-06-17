@@ -24,7 +24,6 @@ public class GOSelection : MonoBehaviour {
 					Debug.Log ("T'as touché un drone ou un humain !");
 					GameObject drone = hitInfo.transform.gameObject;
 
-					GameObject simulator = GameObject.FindGameObjectWithTag("Simulator");
 					ClickMovement clickMovement = GetComponent<ClickMovement>();
 					clickMovement.objectToMove = drone;
 				} else {

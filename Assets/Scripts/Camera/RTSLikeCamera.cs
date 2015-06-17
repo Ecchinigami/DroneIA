@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine;
 using System.Collections;
 
 public class RTSLikeCamera : MonoBehaviour {
@@ -10,7 +9,6 @@ public class RTSLikeCamera : MonoBehaviour {
 	private float minFOV;
 	private float maxFOV;
 	
-	// Use this for initialization
 	void OnEnable () {
 		
 		distance = 60;
@@ -19,19 +17,13 @@ public class RTSLikeCamera : MonoBehaviour {
 		minFOV = 10;
 		maxFOV = 150;
 
-		//GameObject mainCamera = GameObject.FindGameObjectWithTag ("MainCamera");
-
 		this.transform.position = new Vector3 (-23, 35, -23);
-
 		this.transform.rotation = Quaternion.Euler(45, 45, 0);
-		Debug.Log ("cam activé");
-
 
 		Screen.showCursor = true;
 		distance = camera.fieldOfView;		
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		
 		float mousePosX = Input.mousePosition.x; 
@@ -64,7 +56,6 @@ public class RTSLikeCamera : MonoBehaviour {
 
 		distance -= Input.GetAxis("Mouse ScrollWheel") * sensitivityDistance;
 		distance = Mathf.Clamp(distance, minFOV, maxFOV);
-		this.camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, distance, Time.deltaTime * damping);
-		
+		this.camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, distance, Time.deltaTime * damping);		
 	}
 }
