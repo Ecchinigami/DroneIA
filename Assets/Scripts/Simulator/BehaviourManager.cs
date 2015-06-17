@@ -31,7 +31,7 @@ public class BehaviourManager : MonoBehaviour {
 		case "Wandering":
 			foreach(GameObject drone in drones)
 			{
-				Wandering2 wandering = drone.GetComponent<Wandering2>();
+				Wandering wandering = drone.GetComponent<Wandering>();
 				wandering.enabled =! wandering.enabled;
 			}
 		break;
@@ -114,15 +114,14 @@ public class BehaviourManager : MonoBehaviour {
 	{
 		foreach(GameObject drone in drones)
 		{
-			Wandering wandering = drone.GetComponent<Wandering>();
-			Wandering2 wandering2 = drone.GetComponent<Wandering2>();
+			Wandering wandering 			= drone.GetComponent<Wandering>();
 			CircleFormation circleFormation = drone.GetComponent<CircleFormation>();
 			SphereFormation sphereFormation = drone.GetComponent<SphereFormation>();
-			Boid boid = drone.GetComponent<Boid>();
-			CircleMovement circle = drone.GetComponent<CircleMovement>();
+			Boid boid 						= drone.GetComponent<Boid>();
+			CircleMovement circle			= drone.GetComponent<CircleMovement>();
+			
 			if(wandering.enabled)
 				wandering.enabled = false;
-				wandering2.enabled = false;
 			if(circleFormation.enabled)
 				circleFormation.enabled = false;
 			if(sphereFormation.enabled)

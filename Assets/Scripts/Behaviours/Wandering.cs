@@ -18,7 +18,6 @@ public class Wandering : MonoBehaviour {
 		if(randomValue > 0.5f)
 		{
 			rotationSpeed = -rotationSpeed;
-			Debug.Log("changelent");
 		}
 		Invoke("ChangeRotation",rotationTime);
 	}
@@ -30,9 +29,4 @@ public class Wandering : MonoBehaviour {
 		transform.position += transform.forward*movementSpeed*Time.deltaTime;
 		
 	}
-
-	void run(){
-
-	}
-
 }
