@@ -4,8 +4,8 @@ using System.Collections;
 public class Boid : MonoBehaviour{
 	
 	private int boidsNumber;
-	public GameObject[] boidsList;
-	public GameObject goal;
+	private GameObject[] boidsList;
+	private GameObject goal;
 	public float speed;
 	
 	

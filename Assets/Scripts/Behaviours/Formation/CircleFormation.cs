@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public abstract class CircleFormation : AbstractFormation {
 	
-	public GameObject goal;	
+	protected GameObject goal;	
 	public float droneSpeed = 10;
 	
 	protected float radius;	

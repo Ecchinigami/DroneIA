@@ -3,15 +3,16 @@ using System.Collections;
 
 public class CircleMovement : MonoBehaviour {
 
-	public float speed = (2 * Mathf.PI) / 5;
+	public float speed = 10;
 	public float radius = 5;
-	public GameObject target;
+	private GameObject target;
 	
-	private float angle = 0;
+	void OnEnable() {
+		target = GameObject.FindGameObjectWithTag ("Goal");
+	}
 
 	void Update()
-	{
-		angle += speed*Time.deltaTime;		
+	{	
 		float distanceToTarget = Vector3.Distance(target.transform.position, rigidbody.position);
 		
 		if (distanceToTarget > radius-5 && distanceToTarget < radius+5)
