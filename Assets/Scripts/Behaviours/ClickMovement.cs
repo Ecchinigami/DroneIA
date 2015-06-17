@@ -60,7 +60,7 @@ public class ClickMovement : MonoBehaviour {
 			if(distanceToTarget < arriveRadius)
 				objectToMove.rigidbody.AddForce(direction.normalized * -2);
 			else
-				objectToMove.rigidbody.AddForce(direction.normalized * 5);
+				objectToMove.rigidbody.AddForce(direction.normalized * 10);
 
 			//objectToMove.transform.position = Vector3.MoveTowards (transform.position, newPosition, 0.25f);
 			//NavMeshAgent agent = objectToMove.GetComponent<NavMeshAgent>();

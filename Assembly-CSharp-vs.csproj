@@ -46,13 +46,19 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\HumanController.cs" />
      <Compile Include="Assets\Scripts\Behaviours\Boid\Boid.cs" />
      <Compile Include="Assets\Scripts\Behaviours\CircleMovement.cs" />
      <Compile Include="Assets\Scripts\Behaviours\ClickMovement.cs" />
+     <Compile Include="Assets\Scripts\Behaviours\Formation\AbstractFormation.cs" />
      <Compile Include="Assets\Scripts\Behaviours\Formation\CircleFormation.cs" />
+     <Compile Include="Assets\Scripts\Behaviours\Formation\CircleFormationKinematic.cs" />
+     <Compile Include="Assets\Scripts\Behaviours\Formation\CircleFormationSteering.cs" />
+     <Compile Include="Assets\Scripts\Behaviours\Formation\SphereFormation.cs" />
      <Compile Include="Assets\Scripts\Behaviours\GOSelection.cs" />
      <Compile Include="Assets\Scripts\Behaviours\Wandering.cs" />
      <Compile Include="Assets\Scripts\Behaviours\Wandering2.cs" />
+     <Compile Include="Assets\Scripts\Camera\CameraManager.cs" />
      <Compile Include="Assets\Scripts\Camera\FreeCenteredCamera.cs" />
      <Compile Include="Assets\Scripts\Camera\RTSLikeCamera.cs" />
      <Compile Include="Assets\Scripts\DroneController.cs" />

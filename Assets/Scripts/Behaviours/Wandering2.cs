@@ -14,7 +14,7 @@ public class Wandering2 : MonoBehaviour {
 	
 	public void run()
 	{
-		Vector3 referenceForward = Vector3.up;	
+		Vector3 referenceForward = Vector3.forward;	
 		Vector3 directionFromRotation = transform.rotation * referenceForward;
 		
 		Vector3 newDirection = Quaternion.AngleAxis(Random.Range(0f,90f)-Random.Range(0f,90f), transform.up) * directionFromRotation; 

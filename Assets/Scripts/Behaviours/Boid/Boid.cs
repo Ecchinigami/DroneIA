@@ -84,7 +84,7 @@ public class Boid : MonoBehaviour{
 				differenceVector = b.transform.position - this.transform.position;
 				float distance = differenceVector.magnitude;
 				//if ((b.transform.position.magnitude - bj.transform.position.magnitude) < 1)
-				float randDist = Random.Range(2f, 5f);
+				float randDist = Random.Range(4f, 5f);
 				if(distance < randDist)
 				{
 					c.x = c.x - (b.transform.position.x - this.transform.position.x);

@@ -13,7 +13,7 @@ public class BehaviourManager : MonoBehaviour {
 		for(int i=-20; i <= 20; i+=10) {
 			for(int y=-20; y <= 20; y+=10) {
 				Quaternion orientation = Quaternion.AngleAxis(Random.Range(-180f, 180f), Vector3.up);
-				GameObject drone = Instantiate(prefabDrone, prefabDrone.transform.position + new Vector3(i,0,y), orientation) as GameObject;
+				GameObject drone = Instantiate(prefabDrone, prefabDrone.transform.position + new Vector3(i,Random.Range(-1,1),y), orientation) as GameObject;
 				drones.Add(drone);
 			}
 		}
@@ -41,6 +41,14 @@ public class BehaviourManager : MonoBehaviour {
 			{
 				CircleFormation circleFormation = drone.GetComponent<CircleFormation>();
 				circleFormation.enabled =! circleFormation.enabled;
+			}
+		break;
+
+		case "SphereFormation" :
+			foreach(GameObject drone in drones)
+			{
+				SphereFormation sphereFormation = drone.GetComponent<SphereFormation>();
+				sphereFormation.enabled =! sphereFormation.enabled;
 			}
 		break;
 
@@ -74,10 +82,16 @@ public class BehaviourManager : MonoBehaviour {
 		else if(Input.GetKeyDown(KeyCode.F3))
 		{
 			disableAllScript();
+			this.behaviour = "SphereFormation"; 
+			Debug.Log("SphereFormation lancé");
+			switchBehaviour();
+		}
+		else if(Input.GetKeyDown(KeyCode.F4))
+		{
+			disableAllScript();
 			this.behaviour = "Boid"; 
 			Debug.Log("Boid lancé");
 			switchBehaviour();
-
 		}
 	}
 
@@ -86,14 +100,20 @@ public class BehaviourManager : MonoBehaviour {
 		foreach(GameObject drone in drones)
 		{
 			Wandering wandering = drone.GetComponent<Wandering>();
+			Wandering2 wandering2 = drone.GetComponent<Wandering2>();
 			CircleFormation circleFormation = drone.GetComponent<CircleFormation>();
+			SphereFormation sphereFormation = drone.GetComponent<SphereFormation>();
 			Boid boid = drone.GetComponent<Boid>();
 			if(wandering.enabled)
 				wandering.enabled = false;
+				wandering2.enabled = false;
 			if(circleFormation.enabled)
 				circleFormation.enabled = false;
+			if(sphereFormation.enabled)
+				sphereFormation.enabled = false;
 			if(boid.enabled)
 				boid.enabled = false;
+
 		}
 	}
 	

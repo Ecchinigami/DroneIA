@@ -3,20 +3,32 @@ using UnityEngine;
 using System.Collections;
 
 public class RTSLikeCamera : MonoBehaviour {
-
-	//public float distance = 5.0f;
-
-	float distance = 60;
-	float sensitivityDistance = 50;
-	float damping = 5;
-	float minFOV = 10;
-	float maxFOV = 150;
+	
+	private float distance;
+	private float sensitivityDistance;
+	private float damping;
+	private float minFOV;
+	private float maxFOV;
 	
 	// Use this for initialization
-	void Start () {
-		Screen.showCursor = true;
-		distance = camera.fieldOfView;
+	void OnEnable () {
 		
+		distance = 60;
+		sensitivityDistance = 50;
+		damping = 5;
+		minFOV = 10;
+		maxFOV = 150;
+
+		//GameObject mainCamera = GameObject.FindGameObjectWithTag ("MainCamera");
+
+		this.transform.position = new Vector3 (-23, 35, -23);
+
+		this.transform.rotation = Quaternion.Euler(45, 45, 0);
+		Debug.Log ("cam activé");
+
+
+		Screen.showCursor = true;
+		distance = camera.fieldOfView;		
 	}
 	
 	// Update is called once per frame

@@ -8,21 +8,21 @@ public class FreeCenteredCamera : MonoBehaviour {
 	
 	public float distance = 5.0f;
 	
-	float xSpeed = 250.0f;
-	float ySpeed = 120.0f;
-	
-	float zoomRate = 20f;
+	private float xSpeed = 250.0f;
+	private float ySpeed = 120.0f;
+
+	private float zoomRate = 20f;
 
 	private float x = 0.0f;
 	private float y = 0.0f;
 	
 	
-	void Start () {
+	void OnEnabled () {
 		var angles = transform.eulerAngles;
 		x = angles.y;
 		y = angles.x;
 		
-		Screen.showCursor = false;
+		//Screen.showCursor = false;
 	}
 	
 	void LateUpdate () {

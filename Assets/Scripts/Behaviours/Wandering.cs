@@ -14,9 +14,11 @@ public class Wandering : MonoBehaviour {
 	
 	void ChangeRotation()
 	{
-		if(Random.value > 0.5f)
+		float randomValue = Random.Range (0.0f, 1.0f);
+		if(randomValue > 0.5f)
 		{
 			rotationSpeed = -rotationSpeed;
+			Debug.Log("changelent");
 		}
 		Invoke("ChangeRotation",rotationTime);
 	}
